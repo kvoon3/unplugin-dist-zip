@@ -1,0 +1,147 @@
+{
+  "name": "unplugin-dist-zip",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.12.3",
+  "description": "Automatically create a ZIP file after build",
+  "license": "MIT",
+  "homepage": "https://github.com/kvoon3/unplugin-dist-zip#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvoon3/unplugin-dist-zip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kvoon3/unplugin-dist-zip/issues"
+  },
+  "keywords": [
+    "unplugin",
+    "vite",
+    "webpack",
+    "rollup",
+    "transform"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./astro": {
+      "import": "./dist/astro.js",
+      "require": "./dist/astro.cjs"
+    },
+    "./rspack": {
+      "import": "./dist/rspack.js",
+      "require": "./dist/rspack.cjs"
+    },
+    "./vite": {
+      "import": "./dist/vite.js",
+      "require": "./dist/vite.cjs"
+    },
+    "./webpack": {
+      "import": "./dist/webpack.js",
+      "require": "./dist/webpack.cjs"
+    },
+    "./rollup": {
+      "import": "./dist/rollup.js",
+      "require": "./dist/rollup.cjs"
+    },
+    "./esbuild": {
+      "import": "./dist/esbuild.js",
+      "require": "./dist/esbuild.cjs"
+    },
+    "./nuxt": {
+      "import": "./dist/nuxt.js",
+      "require": "./dist/nuxt.cjs"
+    },
+    "./farm": {
+      "import": "./dist/farm.js",
+      "require": "./dist/farm.cjs"
+    },
+    "./types": {
+      "import": "./dist/types.js",
+      "require": "./dist/types.cjs"
+    },
+    "./*": "./*"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch src",
+    "build:fix": "esno scripts/postbuild.ts",
+    "lint": "eslint .",
+    "play": "npm -C playground run dev",
+    "prepublishOnly": "npm run build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "up": "taze -I major"
+  },
+  "peerDependencies": {
+    "@farmfe/core": ">=1",
+    "@nuxt/kit": "^3",
+    "@nuxt/schema": "^3",
+    "esbuild": "*",
+    "rollup": "^3",
+    "vite": ">=3",
+    "webpack": "^4 || ^5"
+  },
+  "peerDependenciesMeta": {
+    "@farmfe/core": {
+      "optional": true
+    },
+    "@nuxt/kit": {
+      "optional": true
+    },
+    "@nuxt/schema": {
+      "optional": true
+    },
+    "esbuild": {
+      "optional": true
+    },
+    "rollup": {
+      "optional": true
+    },
+    "vite": {
+      "optional": true
+    },
+    "webpack": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "unplugin": "^1.15.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.8.0",
+    "@nuxt/kit": "^3.13.2",
+    "@nuxt/schema": "^3.13.2",
+    "@types/node": "^22.8.2",
+    "bumpp": "^9.8.0",
+    "chalk": "^5.3.0",
+    "eslint": "^9.13.0",
+    "esno": "^4.8.0",
+    "fast-glob": "^3.3.2",
+    "nodemon": "^3.1.7",
+    "rollup": "^4.24.2",
+    "taze": "^0.17.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4",
+    "webpack": "^5.95.0"
+  }
+}
